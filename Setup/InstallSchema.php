@@ -17,6 +17,7 @@ class InstallSchema implements InstallSchemaInterface
            [
                'type'     => \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
                'nullable' => true,
+               'default'  => '  ',
                'source' => \AHT\CustomOption\Model\Custom\option\Source\OptionSelect::class,
                'comment'  => 'Custom option group',
            ]
