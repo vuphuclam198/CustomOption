@@ -6,5 +6,11 @@
                 <argument name="template" xsi:type="string">AHT_CustomOption::product/view/options/type/select.phtml</argument>
             </action>
         </referenceBlock>
+
+        <referenceBlock name="product.info.options">
+            <action method="setTemplate">
+                <argument name="template" xsi:type="string">AHT_CustomOption::product/view/options.phtml</argument>
+            </action>
+        </referenceBlock>
     </body>
 </page>

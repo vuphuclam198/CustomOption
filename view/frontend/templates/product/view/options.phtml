@@ -1,0 +1,78 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/* @var $block \Magento\Catalog\Block\Product\View\Options */
+?>
+
+<?php $_options = $block->decorateArray($block->getOptions()) ?>
+<?php $_productId = $block->getProduct()->getId() ?>
+<?php if (count($_options)) :?>
+<script type="text/x-magento-init">
+    {
+        "#product_addtocart_form": {
+            "priceOptions": {
+                "optionConfig": <?= /* @noEscape */ $block->getJsonConfig() ?>,
+                "controlContainer": ".field",
+                "priceHolderSelector": "[data-product-id='<?= $block->escapeHtml($_productId) ?>'][data-role=priceBox]"
+            }
+        }
+    }
+</script>
+    
+<div class="product data items" tabindex="0" data-mage-init='{"tabs":{"openedState":"active"}}'>
+    <div class="item title" data-role="collapsible">
+        <a class="switch" data-toggle="trigger" href="#tab-1">Step 1</a>
+    </div>
+    <div id="tab-1" class="item content" data-role="content">
+        <?php foreach ($_options as $_option) :?>
+            <?php if ($_option->getCustomOptionGroup() == 1) : ?>
+                <?= $block->getOptionHtml($_option) ?>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    </div>
+
+    <div class="item title" data-role="collapsible">
+        <a class="switch" data-toggle="trigger" href="#tab-2">Step 2</a>
+    </div>
+    <div id="tab-2" class="item content" data-role="content">
+        <?php foreach ($_options as $_option) :?>
+            <?php if ($_option->getCustomOptionGroup() == 2) : ?>
+                <?= $block->getOptionHtml($_option) ?>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    </div>
+
+    <div class="item title" data-role="collapsible">
+        <a class="switch" data-toggle="trigger" href="#tab-3">Step 3</a>
+    </div>
+    <div id="tab-3" class="item content" data-role="content">
+        <?php foreach ($_options as $_option) :?>
+            <?php if ($_option->getCustomOptionGroup() == 3) : ?>
+                <?= $block->getOptionHtml($_option) ?>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    </div>
+
+    <div class="item title" data-role="collapsible">
+        <a class="switch" data-toggle="trigger" href="#tab-4">Step 4</a>
+    </div>
+    <div id="tab-4" class="item content" data-role="content">
+        <?php foreach ($_options as $_option) :?>
+            <?php if ($_option->getCustomOptionGroup() == 4) : ?>
+                <?= $block->getOptionHtml($_option) ?>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    </div>
+    
+    <div id="tab-4" class="item content" data-role="content">
+        <?php foreach ($_options as $_option) :?>
+            <?php if ($_option->getCustomOptionGroup() == 0) : ?>
+                <?= $block->getOptionHtml($_option) ?>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    </div>
+</div>
+<?php endif; ?>
